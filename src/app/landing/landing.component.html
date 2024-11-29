@@ -1,0 +1,30 @@
+<div class="container fluid d-flex justify-content-center align-items-center" style="height: 90vh;">
+    <div class="w-75 shadow row p-5">
+        <div class="col">
+            <img src="https://img.freepik.com/free-vector/user-verification-unauthorized-access-prevention-private-account-authentication-cyber-security-people-entering-login-password-safety-measures_335657-8.jpg?t=st=1731871027~exp=1731874627~hmac=c378b9d9803d8ec1a5792aac404c7fab97d8425ddf9c4635f68a920a2145bf7b&w=1060"
+            class="img-fluid" alt="">
+        </div>
+        <div class="col d-flex flex-column justify-content-center">
+            <h2>Login</h2>
+            <form action="" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" [(ngModel)]="formData.email" #email="ngModel" required email class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                    <div *ngIf="email.invalid && email.touched" class="text-danger">
+                      *invalid email
+                    </div>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" name="psw" [(ngModel)]="formData.password" #pswd="ngModel" required class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <div *ngIf="pswd.invalid && pswd.touched" class="text-danger">
+                      *invalid password
+                    </div>
+                  </div>
+                  <div class="d-grid">
+                    <button class="btn btn-success mt-3" [disabled]="loginForm.invalid" type="submit">LOGIN</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
